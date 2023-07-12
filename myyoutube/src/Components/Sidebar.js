@@ -1,6 +1,12 @@
 import React from 'react'
+import { useSelector} from 'react-redux'
+
+
 
  const Sidebar = () => {
+
+  const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
+  if(!isMenuOpen) return null;
   return (
     <div className="col-span-2 w-48">
       <div className="flex p-3 cursor-pointer hover:bg-gray-300 rounded-lg">

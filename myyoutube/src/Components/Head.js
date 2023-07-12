@@ -1,10 +1,18 @@
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "./utils/appSlice";
+
 const Head=()=>{
+    const dispatch=useDispatch();
+    const handleToggleMenu=()=>{
+        dispatch(toggleMenu())
+
+    }
     return(
         <div className="grid grid-flow-col p-3 shadow-lg align-center">
-            <div className="col-span-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-</svg>
+            <div className="col-span-1 cursor-pointer" >
+                <svg onClick={()=>handleToggleMenu()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
             </div>
             <div className="col-span-10 px-8 flex justify-center">
                 <input className="w-3/4 border border-gray-300 p-1 pl-3 rounded-l-full" type="text" placeholder="Search here"/>
