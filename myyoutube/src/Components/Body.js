@@ -4,7 +4,7 @@ import Maincomponent from './Maincomponent'
 
 const Body = () => {
   return (
-    <div className="" >
+    <div className="grid grid-flow-col" >
         <Sidebar/>
         <Maincomponent/>
     </div>
