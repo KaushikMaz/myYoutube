@@ -1,0 +1,2 @@
+const GOOGLE_API_Key= "AIzaSyD-EbwZbhI_zq38lFzZs9y5JmO3Yjl-Je0"
+export const Button_Contents=["Live", "Gaming","Sports","Cricket","Football","WWE","INDIA","Virat Kohli","BIG BOSS","Tech","Bangalore","Tesla","Thread"]
