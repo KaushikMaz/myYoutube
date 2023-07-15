@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from './Sidebar'
-import Maincomponent from './Maincomponent'
+import {Outlet} from "react-router-dom"
 
 
 const Body = () => {
@@ -8,7 +8,7 @@ const Body = () => {
   return (
     <div className="grid grid-flow-col" >
         <Sidebar/>
-        <Maincomponent/>
+        <Outlet/>
     </div>
   )
 }
