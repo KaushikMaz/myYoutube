@@ -1,18 +1,32 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "./utils/appSlice";
 import React from "react";
-import { YOUTUBE_SEARCH_API } from "./Constants";
+import { YOUTUBE_SEARCH_API} from "./Constants";
+import { cacheResult } from "./utils/searchSlice";
+
+
 
 const Head=()=>{
     const[ searchQuery,setSearchQuery]= React.useState("")
     const [suggestions,setSuggestions]=React.useState([])
+    const searchCache=useSelector(store=>store.search)
+    
     const dispatch=useDispatch();
     const handleToggleMenu=()=>{
         dispatch(toggleMenu())
     }
 
     React.useEffect(()=>{
-        const timer=setTimeout(()=>getSearchQueryAPI(),200)
+       
+        const timer=setTimeout(()=>{
+            
+            if(searchCache[searchQuery]){
+                setSuggestions(searchCache[searchQuery])}
+            else{
+                getSearchQueryAPI();
+            }
+        }
+                ,200)
         
         return()=>{
             clearTimeout(timer);
@@ -21,13 +35,17 @@ const Head=()=>{
     },[searchQuery])
 
     const getSearchQueryAPI=async()=>{
+        console.log("API CAll-"+ searchQuery)
         const data= await fetch(YOUTUBE_SEARCH_API + searchQuery)
         const json=await data.json();
         setSuggestions(json[1])
         // console.log(json[1])
-        
 
+        dispatch(cacheResult({
+            [searchQuery]:json[1]
+        }))
     }
+    
     return(
         <div className="grid grid-flow-col p-3 shadow-lg items-center fixed top-0 w-full bg-white z-10">
             <div className="col-span-1 " >
