@@ -4,6 +4,7 @@ const VideoCard = ({info}) => {
     // console.log(info)
     const {snippet,statistics}=info
     const {thumbnails,channelTitle, title}=snippet
+    
         
   return (
     <div className="p-1 m-1 w-80 cursor-pointer">

@@ -62,6 +62,8 @@ const commentsData=[
 
 export const CommentsContainer = () => {
   return (
-    <div className="mt-4">CommentsContainer</div>
+    <div className="mt-4">
+      <h1>CommentsContainer</h1>
+    </div>
   )
 }
