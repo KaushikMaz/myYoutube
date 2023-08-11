@@ -16,7 +16,7 @@ const WatchPage = () => {
     
     <div className="flex flex-col">
       <div className='pl-20 ml-4 mt-[5rem] flex '>
-        <iframe width="700" height="400" src={"https://www.youtube.com/embed/" + videoId.get("v")} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+        <iframe width="700" height="400"  src={"https://www.youtube.com/embed/" + videoId.get("v")} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
         <LiveChat />
       </div>
       <CommentsContainer/>  
