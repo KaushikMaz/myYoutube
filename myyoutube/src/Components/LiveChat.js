@@ -2,6 +2,7 @@ import ChatMessage from "./ChatMessage"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { addLiveMessages } from "./utils/chatSlice"
+import { toggleInteraction } from "./utils/appSlice"
 import { generateRandomName, generateRandomString } from "./Constants"
 const LiveChat=()=>{
     const dispatch=useDispatch()
@@ -28,7 +29,8 @@ const LiveChat=()=>{
     return (
         
         <div className="ml-10 pl-2 pb-1 mr-20 flex-1  border border-black bg-slate-100  rounded-lg ">
-            <div className="flex flex-col-reverse h-[380px] py-2 overflow-y-scroll">
+            <button className="m-1 w-full text-center">Chat</button>
+            <div className="flex flex-col-reverse h-[380px] py-2 mt-1 overflow-y-scroll">
             {liveChatMessages.map((c,index)=><ChatMessage key={index} name={c.name} text={c.text}/>)}
             </div>
             <form onSubmit={(e)=>{
