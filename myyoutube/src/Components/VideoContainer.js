@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux/es/hooks/useSelector'
 import SearchResultCard from './searchResultCard'
 
 
-
 const VideoContainer = () => {
   const [videos,setVideos]=useState([])
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
@@ -16,6 +15,11 @@ const VideoContainer = () => {
   const initialRows=3;
   const InitialVideos=videosPerRow*initialRows
   const [videosVisible, setVideosVisible] = useState(InitialVideos);
+  const [searchResultVideos,setSearchResultVideos]=useState([])
+
+  useEffect(()=>{
+    setSearchResultVideos(searchResult)
+  },[searchResult])
   
   
     useEffect(()=>{
@@ -47,21 +51,39 @@ const VideoContainer = () => {
   }, [isMenuOpen, videosVisible, initialRows, videos.length]);
 
 
-    console.log(searchResult)
+
+
   return(
-    <>
-    {searchResult.length>0 ? (<SearchResultCard info={searchResult[0]}/>):
-    (
-        <div className={`flex flex-wrap ${isMenuOpen?"ml-48":"ml-4"} mt-[7rem]`} >
-          {videos.slice(0,videosVisible).map(video=><Link key={video.id} to={"/watch?v=" + video.id}><VideoCard  info={video}/></Link>)}
-          {videosVisible < videos.length && (<button className="w-full px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500"
-              onClick={()=>setVideosVisible(videos.length)}> Load More </button>)}
-        </div>
-        )
-      }
-          
-    </>
     
+  <>
+  {searchResultVideos.length > 0 ? (
+    <div className={`${isMenuOpen ? "ml-48" : "ml-4"} mt-[7rem]`}>
+      {searchResultVideos.map(v => (
+        <Link key={v.id.videoId} to={"/watch?v=" + v.id.videoId}>
+          <SearchResultCard info={v} />
+        </Link>
+      ))}
+    </div>
+  ) : (
+    <div className={`flex flex-wrap ${isMenuOpen ? "ml-48" : "ml-4"} mt-[7rem]`}>
+      {videos.slice(0, videosVisible).map(video => (
+        <Link key={video.id} to={"/watch?v=" + video.id}>
+          <VideoCard info={video} />
+        </Link>
+      ))}
+      {videosVisible < videos.length && (
+        <button
+          className="w-full px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500"
+          onClick={() => setVideosVisible(videos.length)}
+        >
+          Load More
+        </button>
+      )}
+    </div>
+  )}
+</>
+
+ 
     
   )
 }
