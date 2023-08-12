@@ -12,6 +12,7 @@ const Head=()=>{
     const[searchQuery,setSearchQuery]= React.useState("")
     const[suggestions,setSuggestions]=React.useState([])
     const [isSearchClick,setIsSearchClick]=React.useState(false)
+    const[showSuggestion, setShowSuggestion]=React.useState(false)
     
     const searchCache=useSelector(store=>store.search)
     
@@ -19,7 +20,11 @@ const Head=()=>{
     const handleToggleMenu=()=>{
         dispatch(toggleMenu())
     }
-
+const handleSearchQuery=(e)=>{
+    const searchInput=e.target.value
+    setSearchQuery(searchInput)
+    searchInput?setShowSuggestion(true):setShowSuggestion(false)
+}
     React.useEffect(()=>{
        
         const timer=setTimeout(()=>{
@@ -63,6 +68,7 @@ const Head=()=>{
         // console.log(json.items)
         dispatch(searchResult(json.items))
         setSearchQuery("")
+        
 
          }
 
@@ -78,18 +84,18 @@ const Head=()=>{
             </div>
             <div className="col-span-10 px-8">
                 <div className="flex align-center">
-                    <input className="w-3/4 border border-gray-300 p-1 pl-3 rounded-l-full" type="text" value={searchQuery}  onChange={(e)=>setSearchQuery(e.target.value)} placeholder="Search here"/>
-                    <button onClick={()=>setIsSearchClick(true)} className="px-3 border border-gray-300 p-1 rounded-r-full bg-gray-100">
+                    <input className="w-3/4 border border-gray-300 p-1 pl-3 rounded-l-full" type="text" value={searchQuery}  onChange={handleSearchQuery} placeholder="Search here"/>
+                    <button onClick={()=>{setIsSearchClick(true); setShowSuggestion(false)}} className="px-3 border border-gray-300 p-1 rounded-r-full bg-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
     <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clipRule="evenodd" />
     </svg>
                     </button>
                     
                 </div>
-                {searchQuery &&
+                {showSuggestion &&
                 <div className= "fixed z-20 bg-white py-2 px-2 w-[49.5rem] border border-gray-100 shadow-md mt-0 rounded-lg">
                     <ul>
-                        {suggestions.map((s, index)=><li onClick={()=>{setSearchQuery(s); setIsSearchClick(true)}} className="py-2 px-3 hover:bg-gray-300 rounded-lg cursor-pointer " key={index}>{s}</li>)}
+                        {suggestions.map((s, index)=><li onClick={()=>{setSearchQuery(s); setIsSearchClick(true); setShowSuggestion(false)}} className="py-2 px-3 hover:bg-gray-300 rounded-lg cursor-pointer " key={index}>{s}</li>)}
                         
                     </ul>
                 </div>
