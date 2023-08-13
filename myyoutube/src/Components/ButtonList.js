@@ -1,13 +1,28 @@
 import React from 'react'
 import Button from "./Button"
-import { Button_Contents } from './Constants'
+import { Video_CategoriesAPI } from './Constants'
 import {useSelector } from 'react-redux'
 
 const ButtonList = () => {
   const isMenuOpen=useSelector(store=>store.app.isMenuOpen)
+  const [videoCategoryData,setVideoCategoryData]=React.useState([])
+  React.useEffect(()=>{
+    getVideoCategories()
+},[])
+
+const getVideoCategories=async()=>{
+  
+    const response=await fetch(Video_CategoriesAPI)
+    const jsondata=await response.json()
+    setVideoCategoryData(jsondata?.items)
+    console.log(jsondata?.items)
+  
+  }
+  
+console.log(videoCategoryData)
   return (
     <div className={`flex whitespace-nowrap w-full cursor-pointer fixed top-14 ${isMenuOpen?'left-[12rem]':'left-4'} bg-white`}>
-      {Button_Contents.map((button,index)=><Button key={index} name={button}/>)}
+      {videoCategoryData.length>0? (videoCategoryData.map(d=><Button key={d.id} name={d}/>)):(<h1>Loading...</h1>)}
     </div>
   )
 }

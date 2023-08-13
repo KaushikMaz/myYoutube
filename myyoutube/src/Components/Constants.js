@@ -13,6 +13,9 @@ export const YOUTUBE_SEARCH_RESULTS="https://youtube.googleapis.com/youtube/v3/s
 
 // https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=[YOUR_API_KEY]
 
+export const Video_CategoriesAPI="https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&hl=en&regionCode=IN&key=" + GOOGLE_API_Key;
+
+
 const nameList = [
     'Time', 'Past', 'Future', 'Dev',
     'Fly', 'Flying', 'Soar', 'Soaring', 'Power', 'Falling',
