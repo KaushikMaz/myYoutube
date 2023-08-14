@@ -5,7 +5,7 @@ import VideoCard from "./VideoCard"
 import {Link} from "react-router-dom"
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import SearchResultCard from './searchResultCard'
-import { VideoShimmer } from './helper/Shimmer'
+
 
 
 const VideoContainer = () => {
@@ -78,7 +78,7 @@ const VideoContainer = () => {
       ))}
       {videosVisible < videos.length && (
         <button
-          className="w-full px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500"
+          className={`${isMenuOpen ? "w-[85%]" : "w-full"} px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
           onClick={() => setVideosVisible(videos.length)}
         >
           Load More
