@@ -6,6 +6,7 @@ import {Provider} from "react-redux"
 import store from "./Components/utils/store"
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import WatchPage from './Components/WatchPage';
+import Music from './Components/Music';
 import Maincomponent from "./Components/Maincomponent"
 
 const appRouter=createBrowserRouter([{
@@ -17,6 +18,9 @@ const appRouter=createBrowserRouter([{
     {
     path:"/watch",
     element:<WatchPage/>
+  },{
+    path:"/music",
+    element:<Music/>
   }]
 
 }])
