@@ -38,7 +38,7 @@ const VideoContainer = () => {
           throw new Error("Network Response Issues")
         }
         const json=await data.json();
-        console.log(json.items)
+        // console.log(json.items)
         setVideos(json.items)
 
       }catch(error){
@@ -56,7 +56,7 @@ const VideoContainer = () => {
   }, [isMenuOpen, videosVisible, initialRows, videos.length]);
 
 
-console.log(searchResultVideos)
+// console.log(searchResultVideos)
 
   return(
     

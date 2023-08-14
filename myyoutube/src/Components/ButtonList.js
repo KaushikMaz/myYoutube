@@ -2,8 +2,6 @@ import React from 'react'
 import Button from "./Button"
 import { Video_CategoriesAPI } from './Constants'
 import {useSelector } from 'react-redux'
-import { ButtonShimmer } from './helper/Shimmer'
-import { VideoShimmer } from './helper/Shimmer'
 import { FrontShimmer } from './helper/Shimmer'
 
 const ButtonList = () => {
