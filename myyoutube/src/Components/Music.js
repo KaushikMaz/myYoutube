@@ -1,33 +1,25 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Music_API} from './Constants'
-import VideoCard from './VideoCard'
-import { useSelector } from 'react-redux/'
-import {Link} from "react-router-dom"
+import { Music_API_US } from './Constants'
+import { Music_API_FR} from './Constants'
+import useMusic from './helper/useMusic'
 const Music = () => {
-  const[ musicVideos,setMusicVideos]=React.useState([])
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
 
-  React.useEffect(()=>{
-    getMusicVideos()
-    
-  },[])
-
-  const getMusicVideos=async()=>{
-    const response=await fetch(Music_API)
-    const jsonData= await response.json()
-    setMusicVideos(jsonData?.items)
-        
-  }
-console.log(musicVideos)
-  return (
-    <div className={`font-bold ${isMenuOpen ? "ml-48" : "ml-4"} mt-[7rem] flex flex-wrap`}>
-     {musicVideos.map(video => (
-        <Link key={video.id} to={"/watch?v=" + video.id}>
-          <VideoCard info={video} />
-        </Link>
-        ))}
+  const Popular_Music=useMusic(Music_API)
+  const English_Music=useMusic(Music_API_US)
+  const FR_Music= useMusic(Music_API_FR)
+  return(
+    <div>
+      {Popular_Music}
+      <hr className={`${isMenuOpen ? "w-[85%]" : "w-full"} p-2`}></hr>
+      {English_Music}
+      <hr className={`${isMenuOpen ? "w-[85%]" : "w-full"} p-2`}></hr>
+      {FR_Music}
+      
     </div>
-  )
-}
 
+  )
+  }
 export default Music

@@ -15,6 +15,9 @@ export const Video_CategoriesAPI="https://youtube.googleapis.com/youtube/v3/vide
 
 // export const Music_Videos_API= "https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&hl=en&id=10&regionCode=IN&key=" + GOOGLE_API_Key; 
 export const Music_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=IN&videoCategoryId=10&key="+ GOOGLE_API_Key
+export const Music_API_US="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=US&videoCategoryId=10&key="+ GOOGLE_API_Key
+export const Music_API_FR="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=fr&regionCode=FR&videoCategoryId=10&key="+ GOOGLE_API_Key
+
 
 const nameList = [
     'Time', 'Past', 'Future', 'Dev',
