@@ -5,6 +5,7 @@ import VideoCard from "./VideoCard"
 import {Link} from "react-router-dom"
 import { useSelector } from 'react-redux/es/hooks/useSelector'
 import SearchResultCard from './searchResultCard'
+import { VideoShimmer } from './helper/Shimmer'
 
 
 const VideoContainer = () => {
@@ -83,8 +84,9 @@ console.log(searchResultVideos)
           Load More
         </button>
       )}
-    </div>
-  )}
+    </div>)
+  
+      }
 </>
 
  

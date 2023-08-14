@@ -2,6 +2,9 @@ import React from 'react'
 import Button from "./Button"
 import { Video_CategoriesAPI } from './Constants'
 import {useSelector } from 'react-redux'
+import { ButtonShimmer } from './helper/Shimmer'
+import { VideoShimmer } from './helper/Shimmer'
+import { FrontShimmer } from './helper/Shimmer'
 
 const ButtonList = () => {
   const isMenuOpen=useSelector(store=>store.app.isMenuOpen)
@@ -22,7 +25,7 @@ const getVideoCategories=async()=>{
 // console.log(videoCategoryData)
   return (
     <div className={`flex whitespace-nowrap w-full cursor-pointer fixed top-14 ${isMenuOpen?'left-[12rem]':'left-4'} bg-white`}>
-      {videoCategoryData.length>0? (videoCategoryData.map(d=><Button key={d.id} name={d}/>)):(<h1>Loading...</h1>)}
+      {videoCategoryData.length>0? (videoCategoryData.map(d=><Button key={d.id} name={d}/>)):(<FrontShimmer/>)}
     </div>
   )
 }
