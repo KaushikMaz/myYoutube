@@ -5,6 +5,8 @@ import { YOUTUBE_SEARCH_API,YOUTUBE_SEARCH_RESULTS} from "./Constants";
 import { searchResult } from "./utils/searchResultSlice";
 import { cacheResult } from "./utils/searchSlice";
 import { GOOGLE_API_Key } from "../config";
+import {useNavigation} from "react-router-dom"
+
 
 
 
@@ -13,7 +15,7 @@ const Head=()=>{
     const[suggestions,setSuggestions]=React.useState([])
     const [isSearchClick,setIsSearchClick]=React.useState(false)
     const[showSuggestion, setShowSuggestion]=React.useState(false)
-    
+    // const navigation=useNavigation()
     const searchCache=useSelector(store=>store.search)
     
     const dispatch=useDispatch();
@@ -24,6 +26,10 @@ const handleSearchQuery=(e)=>{
     const searchInput=e.target.value
     setSearchQuery(searchInput)
     searchInput?setShowSuggestion(true):setShowSuggestion(false)
+    // if(searchQuery.trim()!==""){
+    //     navigation("/searchResults")
+    // }
+    
 }
 
 const handleClickOutside=(event)=>{

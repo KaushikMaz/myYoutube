@@ -4,32 +4,20 @@ import { YOUTUBE_API_KEY } from './Constants'
 import VideoCard from "./VideoCard"
 import {Link} from "react-router-dom"
 import { useSelector } from 'react-redux/es/hooks/useSelector'
-import SearchResultCard from './searchResultCard'
+import { VideoShimmer } from './helper/Shimmer'
+
 
 
 
 const VideoContainer = () => {
   const [videos,setVideos]=useState([])
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
-  const searchResult=useSelector(store=>store.searchResult)
   const videosPerRow = isMenuOpen ? 3 : 4;
   const initialRows=3;
   const InitialVideos=videosPerRow*initialRows
   const [videosVisible, setVideosVisible] = useState(InitialVideos);
-  const [searchResultVideos,setSearchResultVideos]=useState([])
-
-  useEffect(()=>{
-
-    if(searchResult.length>0){
-      setSearchResultVideos(searchResult)
-
-      return()=>{
-        setSearchResultVideos([])
-        console.log("Cleanup function working")}
-      }
-    
-  },[searchResult])
   
+
   
     useEffect(()=>{
       getVideos();
@@ -65,15 +53,7 @@ const VideoContainer = () => {
   return(
     
   <>
-  {searchResultVideos.length > 0 ? (
-    <div className={`${isMenuOpen ? "ml-48" : "ml-4"} mt-[7rem]`}>
-      {searchResultVideos.map(v => (
-        <Link key={v.id.videoId} to={"/watch?v=" + v.id.videoId}>
-          <SearchResultCard info={v} />
-        </Link>
-      ))}
-    </div>
-  ) : (
+  {videos.length>0?(
     <div className={`flex flex-wrap ${isMenuOpen ? "ml-48" : "ml-4"} mt-[7rem]`}>
       {videos.slice(0, videosVisible).map(video => (
         <Link key={video.id} to={"/watch?v=" + video.id}>
@@ -88,9 +68,10 @@ const VideoContainer = () => {
           Load More
         </button>
       )}
-    </div>)
-  
+    </div>
+  ):(<VideoShimmer/>)
       }
+      
 </>
 
  
