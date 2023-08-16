@@ -2,6 +2,7 @@ import React from 'react'
 import VideoCard from '../VideoCard'
 import { useSelector } from 'react-redux/'
 import {Link} from "react-router-dom"
+import { ExploreContentShimmer } from './Shimmer'
 
 
 const useContent = (API) => {
@@ -35,6 +36,9 @@ const useContent = (API) => {
 
 
   return (
+    <>
+    {contentVideos.length>0?(
+     
     <div className={`font-bold ${isMenuOpen ? "ml-48" : "ml-4"} mt-[4rem] flex flex-wrap`}>
      {contentVideos.slice(0,videosVisible).map(video => (
         <Link key={video.id} to={"/watch?v=" + video.id}>
@@ -51,7 +55,10 @@ const useContent = (API) => {
       )}
     </div>
     
+    ):(<ExploreContentShimmer/>)}
+    </>
   )
+  
 }
 
 export default useContent
