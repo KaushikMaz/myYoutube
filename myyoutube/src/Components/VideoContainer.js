@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { useEffect,useState } from 'react'
 import { YOUTUBE_API_KEY } from './Constants'
 import VideoCard from "./VideoCard"
@@ -19,11 +19,15 @@ const VideoContainer = () => {
   const [searchResultVideos,setSearchResultVideos]=useState([])
 
   useEffect(()=>{
-    searchResult.length>0?(setSearchResultVideos(searchResult)):(setSearchResultVideos([]))
 
-    return ()=>{
-      setSearchResultVideos([])
-    }
+    if(searchResult.length>0){
+      setSearchResultVideos(searchResult)
+
+      return()=>{
+        setSearchResultVideos([])
+        console.log("Cleanup function working")}
+      }
+    
   },[searchResult])
   
   

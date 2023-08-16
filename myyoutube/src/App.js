@@ -7,6 +7,7 @@ import store from "./Components/utils/store"
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import WatchPage from './Components/WatchPage';
 import Music from './Components/Music';
+import News from "./Components/News"
 import Maincomponent from "./Components/Maincomponent"
 
 const appRouter=createBrowserRouter([{
@@ -21,6 +22,9 @@ const appRouter=createBrowserRouter([{
   },{
     path:"/music",
     element:<Music/>
+  },{
+    path:"/news",
+    element:<News/>
   }]
 
 }])
