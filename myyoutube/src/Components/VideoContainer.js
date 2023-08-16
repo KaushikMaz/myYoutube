@@ -54,7 +54,7 @@ const VideoContainer = () => {
     
   <>
   {videos.length>0?(
-    <div className={`flex flex-wrap ${isMenuOpen ? "ml-48" : "ml-4"} mt-[7rem]`}>
+    <div className={`flex flex-wrap ${isMenuOpen ? "ml-48" : "ml-4"} mt-[7rem] `}>
       {videos.slice(0, videosVisible).map(video => (
         <Link key={video.id} to={"/watch?v=" + video.id}>
           <VideoCard info={video} />

@@ -39,7 +39,7 @@ const useContent = (API) => {
     <>
     {contentVideos.length>0?(
      
-    <div className={`font-bold ${isMenuOpen ? "ml-48" : "ml-4"} mt-[4rem] flex flex-wrap`}>
+    <div className={`font-bold ${isMenuOpen ? "ml-48" : "ml-4"} mt-[4rem] flex flex-wrap `}>
      {contentVideos.slice(0,videosVisible).map(video => (
         <Link key={video.id} to={"/watch?v=" + video.id}>
           <VideoCard info={video} />
