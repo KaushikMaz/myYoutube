@@ -4,7 +4,7 @@ import Head from "./Components/Head"
 import Body from "./Components/Body"
 import {Provider} from "react-redux"
 import store from "./Components/utils/store"
-import {createBrowserRouter, RouterProvider, BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import WatchPage from './Components/WatchPage';
 import Music from './Components/Music';
 import News from "./Components/News"

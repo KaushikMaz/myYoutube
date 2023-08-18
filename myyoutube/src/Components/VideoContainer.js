@@ -1,9 +1,9 @@
-
+import React from "react"
 import { useEffect,useState } from 'react'
 import { YOUTUBE_API_KEY } from './Constants'
 import VideoCard from "./VideoCard"
 import {Link} from "react-router-dom"
-import { useSelector } from 'react-redux/es/hooks/useSelector'
+import { useSelector } from 'react-redux'
 import { VideoShimmer } from './helper/Shimmer'
 
 
