@@ -9,6 +9,7 @@ import WatchPage from './Components/WatchPage';
 import Music from './Components/Music';
 import News from "./Components/News"
 import Sports from "./Components/Sports"
+import Gaming from "./Components/Gaming"
 import SearchResults from './Components/SearchResults';
 import Maincomponent from "./Components/Maincomponent";
 
@@ -48,6 +49,7 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/searchResults" element={<SearchResults />} />
             <Route path="/sports" element={<Sports/>}/>
+            <Route path="/gaming" element={<Gaming/>}/>
           </Route>
         </Routes>
       </Router>
