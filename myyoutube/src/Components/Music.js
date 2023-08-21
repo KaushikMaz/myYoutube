@@ -7,9 +7,9 @@ import useContent from './helper/useContent'
 const Music = () => {
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
 
-  const Popular_Music=useContent(Music_API)
-  const English_Music=useContent(Music_API_US)
-  const FR_Music= useContent(Music_API_FR)
+  const Popular_Music=useContent(Music_API,1)
+  const English_Music=useContent(Music_API_US,1)
+  const FR_Music= useContent(Music_API_FR,1)
   return(
     <div>
       {Popular_Music}

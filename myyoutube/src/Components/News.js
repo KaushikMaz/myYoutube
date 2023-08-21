@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux'
 
 const News = () => {
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
-  const Popular_News=useContent(News_API)
-  const English_News =useContent(News_API_US)
+  const Popular_News=useContent(News_API,1)
+  const English_News =useContent(News_API_US,1)
   
   return (
     <div>

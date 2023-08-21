@@ -5,11 +5,11 @@ import {Link} from "react-router-dom"
 import { ExploreContentShimmer } from './Shimmer'
 
 
-const useContent = (API) => {
+const useContent = (API, initialRowValue) => {
   const[ contentVideos,setContentVideos]=React.useState([])
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
   const videosPerRow = isMenuOpen ? 3 : 4;
-  const initialRows=1;
+  const initialRows=initialRowValue;
   const InitialVideos=videosPerRow*initialRows
   const [videosVisible, setVideosVisible] = React.useState(InitialVideos);
 

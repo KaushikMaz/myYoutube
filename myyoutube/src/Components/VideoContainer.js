@@ -48,7 +48,7 @@ const VideoContainer = () => {
   }, [isMenuOpen, videosVisible, initialRows, videos.length]);
 
 
-// console.log(searchResultVideos)
+console.log(videos)
 
   return(
     
