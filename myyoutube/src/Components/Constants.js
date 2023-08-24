@@ -22,7 +22,7 @@ export const News_API_US="https://youtube.googleapis.com/youtube/v3/videos?part=
 
 export const Sports_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&hl=en&regionCode=IN&videoCategoryId=17&key="+ GOOGLE_API_Key
 export const Gaming_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&hl=en&regionCode=IN&videoCategoryId=20&key="+ GOOGLE_API_Key
-
+export const Live_API= "https://youtube.googleapis.com/youtube/v3/liveBroadcasts?broadcastStatus=active&key=" + GOOGLE_API_Key
 
 export const FrontBanner=({name,description, backgroundColor})=>{
     const isMenuOpen=useSelector(store=>store.app.isMenuOpen)

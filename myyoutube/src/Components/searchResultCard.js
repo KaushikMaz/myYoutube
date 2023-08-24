@@ -3,7 +3,7 @@ import React from "react"
 
 const SearchResultCard=({info})=>{
   
-  // console.log(info)  
+  // console.log(info)
   const {snippet}=info
   const{channelTitle,description,title,thumbnails}=snippet
   return(
