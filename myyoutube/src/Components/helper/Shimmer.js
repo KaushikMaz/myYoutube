@@ -21,7 +21,7 @@ export const VideoShimmer=()=>{
   const videoKeys=Array.from({length:arrVideo.length},()=>uuidv4())
   return(
     
-    <div className="flex flex-wrap mr-[8rem] ml-[12rem] mt-[7rem]">
+    <div className="flex flex-wrap mr-[8rem] ml-[16rem] mt-[7rem]">
       {arrVideo.map((_, index) => (
         <div className="flex flex-col">
           <div
@@ -44,7 +44,7 @@ export const ExploreContentShimmer=()=>{
 
   return(
     <div className="flex flex-col ">
-      <div className=" flex mr-[8rem] ml-[12rem] mt-[4rem]">
+      <div className=" flex mr-[8rem] ml-[14rem] mt-[4rem]">
         {arr.map((_) => (
           <div className="flex flex-col ">
             <div

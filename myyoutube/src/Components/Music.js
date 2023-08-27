@@ -13,9 +13,9 @@ const Music = () => {
   return(
     <div>
       {Popular_Music}
-      <hr className={`${isMenuOpen ? "w-[85%]" : "w-full"} p-2`}></hr>
+      <hr className={`${isMenuOpen ? "w-[85%]" : "w-full"} p-1 m-1 `}></hr>
       {English_Music}
-      <hr className={`${isMenuOpen ? "w-[85%]" : "w-full"} p-2`}></hr>
+      <hr className={`${isMenuOpen ? "w-[85%]" : "w-full"} p-1 m-1`}></hr>
       {FR_Music}
       
     </div>

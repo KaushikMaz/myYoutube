@@ -22,7 +22,7 @@ const getVideoCategories=async()=>{
   
 // console.log(videoCategoryData)
   return (
-    <div className={`flex whitespace-nowrap w-full z-5 cursor-pointer fixed top-14 ${isMenuOpen?'left-[12rem]':'left-4'} bg-white`}>
+    <div className={`flex whitespace-nowrap w-full z-5 cursor-pointer fixed top-14 ${isMenuOpen?'left-[13rem]':'left-6'} bg-white`}>
       {videoCategoryData.length>0? (videoCategoryData.map(d=><Button key={d.id} name={d}/>)):(<ButtonShimmer/>)}
     </div>
   )
