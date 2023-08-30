@@ -62,7 +62,7 @@ console.log(videos)
       ))}
       {videosVisible < videos.length && (
         <button
-          className={`${isMenuOpen ? "w-[85%]" : "w-full"} px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
+          className={`${isMenuOpen ? "w-[85%]" : "w-full"} px-3 py-1 m-1 mborder border-gray-300 rounded-lg hover:bg-gray-500`}
           onClick={() => setVideosVisible(videos.length)}
         >
           Load More

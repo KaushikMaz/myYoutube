@@ -21,7 +21,7 @@ export const VideoShimmer=()=>{
   const videoKeys=Array.from({length:arrVideo.length},()=>uuidv4())
   return(
     
-    <div className="flex flex-wrap mr-[8rem] ml-[16rem] mt-[7rem]">
+    <div className="flex flex-wrap mr-[6rem] ml-[15rem] mt-[7rem]">
       {arrVideo.map((_, index) => (
         <div className="flex flex-col">
           <div
@@ -44,12 +44,12 @@ export const ExploreContentShimmer=()=>{
 
   return(
     <div className="flex flex-col ">
-      <div className=" flex mr-[8rem] ml-[14rem] mt-[4rem]">
+      <div className=" flex mr-[10rem] ml-[15rem] mt-[4rem]">
         {arr.map((_) => (
           <div className="flex flex-col ">
             <div
               key={uuidv4()}
-              className=" w-[20rem] h-[12rem] m-2 border border-gray-300 bg-gray-300 rounded-lg animate-pulse"
+              className=" w-[19.5rem] h-[11rem] m-2 border border-gray-300 bg-gray-300 rounded-lg animate-pulse"
             ></div>
             <div className="w-[18rem] h-[1rem] ml-2 mb-1 border border-gray-300 rounded-lg  bg-gray-300 animate-pulse"></div>
             <div className="w-[16rem] h-[1rem] ml-2 border border-gray-300 rounded-lg bg-gray-300 animate-pulse"></div>
@@ -57,7 +57,7 @@ export const ExploreContentShimmer=()=>{
           
         ))}
         </div>
-      <div className='mr-[8rem] ml-[12.5rem] mt-9 w-[62rem] h-10 mb-2 border border-gray-300 rounded-lg bg-gray-300 animate-pulse'></div>
+      <div className='mr-[8rem] ml-[15rem] mt-9 w-[60rem] h-8 mb-2 border border-gray-300 rounded-lg bg-gray-300 animate-pulse'></div>
         
 
       
