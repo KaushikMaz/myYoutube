@@ -27,7 +27,7 @@ export const Live_API= "https://youtube.googleapis.com/youtube/v3/liveBroadcasts
 export const FrontBanner=({name,description, backgroundColor})=>{
     const isMenuOpen=useSelector(store=>store.app.isMenuOpen)
     return(
-      <div className={`${isMenuOpen? 'ml-4 w-[87%]': 'w-full'} text-center rounded-lg mt-14`}>
+      <div className={`${isMenuOpen? 'w-[90%] ': 'w-full'} text-center rounded-lg mt-14`}>
         <div className={`${backgroundColor} pb-8 pt-8  text-gray-100`}>
             <h1  className='font-bold '>{name}</h1>
             <h3 className="font-thin"> {description}</h3>

@@ -22,8 +22,12 @@ const getVideoCategories=async()=>{
   
 // console.log(videoCategoryData)
   return (
-    <div className={`flex whitespace-nowrap w-full z-5 cursor-pointer fixed top-14 ${isMenuOpen?'left-[13rem]':'left-6'} bg-white`}>
+    <div className={`fixed z-1  top-14 ${isMenuOpen?'left-[15rem] w-[61rem]':'left-6 w-[97%]'} bg-white`}>
+    <div className=" flex overflow-x-scroll no-scrollbar">
+    <div className="flex cursor-pointer whitespace-nowrap space-x-2 "   >
       {videoCategoryData.length>0? (videoCategoryData.map(d=><Button key={d.id} name={d}/>)):(<ButtonShimmer/>)}
+    </div>
+    </div>
     </div>
   )
 }

@@ -52,7 +52,9 @@ export const ExploreContentShimmer=()=>{
               className=" w-[19.5rem] h-[11rem] m-2 border border-gray-300 bg-gray-300 rounded-lg animate-pulse"
             ></div>
             <div className="w-[18rem] h-[1rem] ml-2 mb-1 border border-gray-300 rounded-lg  bg-gray-300 animate-pulse"></div>
-            <div className="w-[16rem] h-[1rem] ml-2 border border-gray-300 rounded-lg bg-gray-300 animate-pulse"></div>
+            <div className="w-[16rem] h-[1rem] ml-2 mb-1 border border-gray-300 rounded-lg bg-gray-300 animate-pulse"></div>
+            <div className="w-[10rem] h-[1rem] ml-2 mb-1 border border-gray-300 rounded-lg bg-gray-300 animate-pulse"></div>
+            <div className="w-[5rem] h-[1rem] ml-2 border border-gray-300 rounded-lg bg-gray-300 animate-pulse"></div>
           </div>
           
         ))}
