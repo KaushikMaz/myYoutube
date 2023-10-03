@@ -46,12 +46,15 @@ const useContent = (API, initialRowValue) => {
         </Link>
         ))}
       {videosVisible < contentVideos.length && (
+         <>
          <button
             className={`${isMenuOpen ? "w-[87%]" : "w-full"} px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
             onClick={() => setVideosVisible(contentVideos.length)}
         >
           <h1 className='font-light'>Load More</h1>
         </button>
+        <div className={` ml-1 mt-0 m-1 border  border-b-2 border-gray-300 ${isMenuOpen ? "w-[87%]" : "w-full"}`}></div>
+        </>
       )}
     </div>
     
