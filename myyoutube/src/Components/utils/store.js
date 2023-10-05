@@ -3,6 +3,7 @@ import appSlice from "./appSlice"
 import searchSlice from "./searchSlice";
 import searchResultSlice from "./searchResultSlice";
 import chatSlice from "./chatSlice";
+import videoDetailsSlice from "./videoDetailsSlice";
 
 
 const store=configureStore({
@@ -10,7 +11,8 @@ const store=configureStore({
         app:appSlice,
         search:searchSlice,
         searchResult:searchResultSlice,
-        liveChat:chatSlice
+        liveChat:chatSlice,
+        videoDetails:videoDetailsSlice
         
     }
 })

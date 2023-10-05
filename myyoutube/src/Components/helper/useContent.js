@@ -1,12 +1,14 @@
 import React from 'react'
 import VideoCard from '../VideoCard'
-import { useSelector } from 'react-redux/'
+import { useSelector,useDispatch } from 'react-redux/'
 import {Link} from "react-router-dom"
 import { ExploreContentShimmer } from './Shimmer'
+import { addenglishMusic,addfrenchMusic,addpopularMusic,addenglishNews,addpopularNews,addgamingVideos,addsportsVideos } from '../utils/videoDetailsSlice'
 
 
-const useContent = (API, initialRowValue) => {
+const useContent = (API,initialRowValue,identifier) => {
   const[ contentVideos,setContentVideos]=React.useState([])
+  const dispatch=useDispatch()
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
   const videosPerRow = isMenuOpen ? 3 : 4;
   const initialRows=initialRowValue;
@@ -23,6 +25,22 @@ const useContent = (API, initialRowValue) => {
     const response=await fetch(API)
     const jsonData= await response.json()
     setContentVideos(jsonData?.items)
+    
+    if(identifier==="popularMusic"){
+      dispatch(addpopularMusic(jsonData?.items))
+    }else if(identifier==="englishMusic"){
+      dispatch(addenglishMusic(jsonData?.items))
+    }else if(identifier==="frenchMusic"){
+      dispatch(addfrenchMusic(jsonData?.items))
+    }else if(identifier==="popularNews"){
+      dispatch(addpopularNews(jsonData?.items))
+    } else if(identifier==="englishNews"){
+      dispatch(addenglishNews(jsonData?.items))
+    }else if(identifier==="gamingVideos"){
+      dispatch(addgamingVideos(jsonData?.items))
+    }else if (identifier==="sportsVideos"){
+      dispatch(addsportsVideos(jsonData?.items))
+    }
         
   }
 

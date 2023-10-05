@@ -5,11 +5,13 @@ import VideoCard from "./VideoCard"
 import {Link} from "react-router-dom"
 import { useSelector } from 'react-redux'
 import { VideoShimmer } from './helper/Shimmer'
-
+import { useDispatch } from "react-redux"
+import { addhomeVideos } from "./utils/videoDetailsSlice"
 
 
 
 const VideoContainer = () => {
+  const dispatch=useDispatch()
   const [videos,setVideos]=useState([])
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
   const videosPerRow = isMenuOpen ? 3 : 4;
@@ -32,6 +34,7 @@ const VideoContainer = () => {
         const json=await data.json();
         // console.log(json.items)
         setVideos(json.items)
+        dispatch(addhomeVideos(json.items))
 
       }catch(error){
         console.log("Error fetching Videos",error)
@@ -48,7 +51,7 @@ const VideoContainer = () => {
   }, [isMenuOpen, videosVisible, initialRows, videos.length]);
 
 
-console.log(videos)
+// console.log(videos)
 
   return(
     
