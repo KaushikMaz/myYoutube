@@ -1,11 +1,13 @@
 import React, { useState,useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch,useSelector } from 'react-redux'
 import { toggleMenuOff } from './utils/appSlice'
 import { useSearchParams } from 'react-router-dom'
 import {CommentsContainer} from './CommentsContainer'
 import LiveChat from './LiveChat'
+import VidDetails from './VidDetails'
 
 const WatchPage = () => {
+    const videos=useSelector(store=>store.videoDetails.Videos)
     const [videoId]=useSearchParams();
     const [loading,setLoading]=useState(true)
 useEffect(()=>{
@@ -38,6 +40,9 @@ useEffect(()=>{
             <iframe width="700" height="400"  src={"https://www.youtube.com/embed/" + videoId.get("v")} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
       </div>  
         <LiveChat />
+      </div>
+      <div>
+        <VidDetails details={videos} id={videoId}/>
       </div>
       <CommentsContainer/>  
             

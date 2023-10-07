@@ -3,10 +3,10 @@ import VideoCard from '../VideoCard'
 import { useSelector,useDispatch } from 'react-redux/'
 import {Link} from "react-router-dom"
 import { ExploreContentShimmer } from './Shimmer'
-import { addenglishMusic,addfrenchMusic,addpopularMusic,addenglishNews,addpopularNews,addgamingVideos,addsportsVideos } from '../utils/videoDetailsSlice'
+import { addVideos} from '../utils/videoDetailsSlice'
+import { mergedObjects } from '../Constants'
 
-
-const useContent = (API,initialRowValue,identifier) => {
+const useContent = (API,initialRowValue) => {
   const[ contentVideos,setContentVideos]=React.useState([])
   const dispatch=useDispatch()
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
@@ -21,27 +21,24 @@ const useContent = (API,initialRowValue,identifier) => {
     
   },[])
 
+
+
   const getContentVideos=async()=>{
     const response=await fetch(API)
     const jsonData= await response.json()
     setContentVideos(jsonData?.items)
-    
-    if(identifier==="popularMusic"){
-      dispatch(addpopularMusic(jsonData?.items))
-    }else if(identifier==="englishMusic"){
-      dispatch(addenglishMusic(jsonData?.items))
-    }else if(identifier==="frenchMusic"){
-      dispatch(addfrenchMusic(jsonData?.items))
-    }else if(identifier==="popularNews"){
-      dispatch(addpopularNews(jsonData?.items))
-    } else if(identifier==="englishNews"){
-      dispatch(addenglishNews(jsonData?.items))
-    }else if(identifier==="gamingVideos"){
-      dispatch(addgamingVideos(jsonData?.items))
-    }else if (identifier==="sportsVideos"){
-      dispatch(addsportsVideos(jsonData?.items))
-    }
-        
+
+    const videoData=jsonData?.items.map((obj)=>{
+      const {id}=obj;
+      const{channelTitle, title}=obj?.snippet;
+      const {description}=obj?.snippet?.localized;
+      const {likeCount,viewCount}=obj?.statistics;
+      return { [id]:{channelTitle,title,description,likeCount,viewCount}}
+
+    })
+    const mergeData=mergedObjects(videoData)
+    dispatch(addVideos(mergeData))
+            
   }
 
   React.useEffect(() => {

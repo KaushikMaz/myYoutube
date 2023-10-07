@@ -30,9 +30,9 @@ const LiveChat=()=>{
     },[])
 
     return (
-        <div className="flex-1 ">
-            <div className="ml-10 pb-1 mr-20 border w-[26rem] border-black bg-slate-100  rounded-lg ">
-                <button onClick={handleToggleClick} className="p-1 w-full text-center border-black ">{showChat?"Hide Chat":"Show Chat"}</button>
+        <div className="flex-1 w-[33rem] absolute left-[52rem] ">
+            <div className="ml-10 pb-1 mr-20 border  border-black bg-slate-100  rounded-lg ">
+                <button onClick={handleToggleClick} className="p-1  w-full text-center border-black ">{showChat?"Hide Chat":"Show Chat"}</button>
             </div>
             {showChat && 
             <div className="ml-10 pb-1 mr-20 border border-t-0 border-black bg-slate-100  rounded-lg ">

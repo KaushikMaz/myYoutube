@@ -38,6 +38,18 @@ export const FrontBanner=({name,description, backgroundColor})=>{
     )
   }
 
+  export const mergedObjects=(array)=>{
+    const mergeObject={}
+    for(let i=0;i<=array.length;i++){
+      const newObject=array[i]
+      if(newObject){
+        Object.assign(mergeObject,newObject)
+      }
+    }
+    return mergeObject;
+  }
+
+
 const nameList = [
     'Time', 'Past', 'Future', 'Dev',
     'Fly', 'Flying', 'Soar', 'Soaring', 'Power', 'Falling',

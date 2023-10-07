@@ -6,7 +6,8 @@ import {Link} from "react-router-dom"
 import { useSelector } from 'react-redux'
 import { VideoShimmer } from './helper/Shimmer'
 import { useDispatch } from "react-redux"
-import { addhomeVideos } from "./utils/videoDetailsSlice"
+import { addVideos } from "./utils/videoDetailsSlice"
+import { mergedObjects } from "./Constants"
 
 
 
@@ -34,7 +35,18 @@ const VideoContainer = () => {
         const json=await data.json();
         // console.log(json.items)
         setVideos(json.items)
-        dispatch(addhomeVideos(json.items))
+
+        const videoData=json?.items.map((obj)=>{
+          const {id}=obj;
+          const{channelTitle, title}=obj?.snippet;
+          const {description}=obj?.snippet?.localized;
+          const {likeCount,viewCount}=obj?.statistics;
+          return {[id]:{channelTitle,title,description,likeCount,viewCount}}
+              
+        })
+                
+        const mergeData=mergedObjects(videoData)
+        dispatch(addVideos(mergeData))
 
       }catch(error){
         console.log("Error fetching Videos",error)

@@ -5,7 +5,7 @@ import { FrontBanner } from './Constants'
 
 const Sports = () => {
   
-  const sports=useContent(Sports_API,3,"sportsVideos")
+  const sports=useContent(Sports_API,3)
   
    return (
     <div className="flex flex-col">
