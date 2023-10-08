@@ -46,7 +46,7 @@ const VideoContainer = () => {
         })
                 
         const mergeData=mergedObjects(videoData)
-        dispatch(addVideos(mergeData))
+        dispatch(addVideos({...mergeData,category:"homeVideos"}))
 
       }catch(error){
         console.log("Error fetching Videos",error)
@@ -77,7 +77,7 @@ const VideoContainer = () => {
       ))}
       {videosVisible < videos.length && (
         <button
-          className={`${isMenuOpen ? "w-[87%]" : "w-full"} px-3 py-1 m-1 mborder border-gray-300 rounded-lg hover:bg-gray-500`}
+          className={`${isMenuOpen ? "w-[87%]" : "w-[98%]"} px-3 py-1 ml-2 border border-gray-300 rounded-lg hover:bg-gray-500`}
           onClick={() => setVideosVisible(videos.length)}
         >
           Load More

@@ -48,8 +48,20 @@ export const FrontBanner=({name,description, backgroundColor})=>{
     }
     return mergeObject;
   }
-
-
+ 
+ export  const videoSearch=(details,videoId)=>{
+    for(const category in details){
+      if(details.hasOwnProperty(category)){
+        const categoryData=details[category];
+        if( categoryData.hasOwnProperty(videoId)){
+          return categoryData[videoId]
+        }
+      }
+      
+    }
+ 
+   return null
+  }
 const nameList = [
     'Time', 'Past', 'Future', 'Dev',
     'Fly', 'Flying', 'Soar', 'Soaring', 'Power', 'Falling',

@@ -6,8 +6,8 @@ import useContent from './helper/useContent'
 
 const News = () => {
   
-  const Popular_News=useContent(News_API,1)
-  const English_News =useContent(News_API_US,1)
+  const Popular_News=useContent(News_API,1,"popularNews")
+  const English_News =useContent(News_API_US,1,"englishNews")
   
   return (
     <div>

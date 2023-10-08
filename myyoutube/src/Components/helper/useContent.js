@@ -6,7 +6,7 @@ import { ExploreContentShimmer } from './Shimmer'
 import { addVideos} from '../utils/videoDetailsSlice'
 import { mergedObjects } from '../Constants'
 
-const useContent = (API,initialRowValue) => {
+const useContent = (API,initialRowValue,category) => {
   const[ contentVideos,setContentVideos]=React.useState([])
   const dispatch=useDispatch()
   const isMenuOpen= useSelector(store=>store.app.isMenuOpen)
@@ -37,7 +37,31 @@ const useContent = (API,initialRowValue) => {
 
     })
     const mergeData=mergedObjects(videoData)
-    dispatch(addVideos(mergeData))
+
+    if(category==="popularMusic"){
+      dispatch(addVideos({...mergeData,category:"popularMusic"}))
+    }else if (category==="englishMusic"){
+      dispatch(addVideos({...mergeData,category:"englishMusic"}))
+    }else if (category==="frenchMusic"){
+      dispatch(addVideos({...mergeData,category:"frenchMusic"}))
+    }else if (category==="popularNews"){
+      dispatch(addVideos({...mergeData,category:"popularNews"}))
+    }else if (category==="englishNews"){
+      dispatch(addVideos({...mergeData,category:"englishNews"}))
+    }else if (category==="sportsVideos"){
+      dispatch(addVideos({...mergeData,category:"sportsVideos"}))
+    }else if (category==="gamingVideos"){
+      dispatch(addVideos({...mergeData,category:"gamingVideos"}))
+    }
+
+
+
+
+
+
+
+
+    
             
   }
 
@@ -63,12 +87,12 @@ const useContent = (API,initialRowValue) => {
       {videosVisible < contentVideos.length && (
          <>
          <button
-            className={`${isMenuOpen ? "w-[87%]" : "w-full"} px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
+            className={`${isMenuOpen ? "w-[87%]" : "w-[98%]"} px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
             onClick={() => setVideosVisible(contentVideos.length)}
         >
           <h1 className='font-light'>Load More</h1>
         </button>
-        <div className={` ml-1 mt-0 m-1 border  border-b-2 border-gray-300 ${isMenuOpen ? "w-[87%]" : "w-full"}`}></div>
+        <div className={` ml-1 mt-0 m-1 border  border-b-2 border-gray-300 ${isMenuOpen ? "w-[87%]" : "w-[98%]"}`}></div>
         </>
       )}
     </div>

@@ -3,12 +3,20 @@ import { createSlice} from "@reduxjs/toolkit";
 const VideoDetailsSlice=createSlice({
     name:"videoDetails",
     initialState:{
-        Videos:[]
+        homeVideos:[],
+        popularMusic:[],
+        englishMusic:[],
+        frenchMusic:[],
+        popularNews:[],
+        englishNews:[],
+        sportsVideos:[],
+        gamingVideos:[]
         
     },
     reducers:{
         addVideos:(state,action)=>{
-            state.Videos=action.payload
+            const{category,...video}=action.payload
+            state[category]=video
 
         },
     },

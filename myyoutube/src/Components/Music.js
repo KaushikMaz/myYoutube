@@ -6,17 +6,16 @@ import useContent from './helper/useContent'
 const Music = () => {
   
 
-  const Popular_Music=useContent(Music_API,1)
-  const English_Music=useContent(Music_API_US,1)
-  const FR_Music= useContent(Music_API_FR,1)
+  const Popular_Music=useContent(Music_API,2,"popularMusic")
+  const English_Music=useContent(Music_API_US,1,"englishMusic")
+  const FR_Music= useContent(Music_API_FR,1,"frenchMusic")
   return(
     <div>
       {Popular_Music}
       {English_Music}
       {FR_Music}
-      
     </div>
-
   )
-  }
-export default Music
+}
+
+export default Music;

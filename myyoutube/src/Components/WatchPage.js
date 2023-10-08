@@ -7,7 +7,7 @@ import LiveChat from './LiveChat'
 import VidDetails from './VidDetails'
 
 const WatchPage = () => {
-    const videos=useSelector(store=>store.videoDetails.Videos)
+    const videos=useSelector(store=>store.videoDetails)
     const [videoId]=useSearchParams();
     const [loading,setLoading]=useState(true)
 useEffect(()=>{
