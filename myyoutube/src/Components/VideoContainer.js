@@ -69,7 +69,7 @@ const VideoContainer = () => {
     
   <>
   {videos.length>0?(
-    <div className={`flex flex-wrap ${isMenuOpen ? "ml-60" : "ml-6"} mt-[7rem] `}>
+    <div className={`flex flex-wrap  ${isMenuOpen ? "md:ml-60" : "md:ml-6"}  mt-[5rem] md:mt-[7rem] `}>
       {videos.slice(0, videosVisible).map(video => (
         <Link key={video.id} to={"/watch?v=" + video.id}>
           <VideoCard info={video} />
@@ -77,10 +77,10 @@ const VideoContainer = () => {
       ))}
       {videosVisible < videos.length && (
         <button
-          className={`${isMenuOpen ? "w-[87%]" : "w-[98%]"} px-3 py-1 ml-2 border border-gray-300 rounded-lg hover:bg-gray-500`}
+          className={`${isMenuOpen ? "md:w-[86%]" : "md:w-[98%]"}  w-[30%] left-[40%] fixed bottom-3 md:static rounded-l-full rounded-r-full px-1 bg-opacity-70 bg-slate-300  md:px-3 md:py-1 md:ml-2  border  border-gray-300 md:rounded-lg md:hover:bg-gray-500`}
           onClick={() => setVideosVisible(videos.length)}
         >
-          Load More
+         Load More
         </button>
       )}
     </div>

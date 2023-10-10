@@ -23,10 +23,8 @@ export const VideoShimmer=()=>{
     
     <div className="flex flex-wrap mr-[6rem] ml-[15rem] mt-[7rem]">
       {arrVideo.map((_, index) => (
-        <div className="flex flex-col">
-          <div
-            key={videoKeys[index]}
-            className=" w-[20rem] h-[12rem] m-1 border border-gray-300 bg-gray-300 rounded-lg animate-pulse"
+        <div className="flex flex-col" key={videoKeys[index]}>
+          <div className=" w-[20rem] h-[12rem] m-1 border border-gray-300 bg-gray-300 rounded-lg animate-pulse"
           ></div>
           <div className="w-[18rem] h-[1rem] ml-1 mb-1 border border-gray-300 rounded-lg  bg-gray-300 animate-pulse"></div>
           <div className="w-[16rem] h-[1rem] ml-1 border border-gray-300 rounded-lg mb-5 bg-gray-300 animate-pulse"></div>
