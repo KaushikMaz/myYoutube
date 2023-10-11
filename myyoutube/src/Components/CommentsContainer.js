@@ -82,7 +82,7 @@ const CommentsList=({comments})=>{
   return comments.map((comment,index)=>(
   <div>
     <Comment key={index} data={comment}/>
-    <div className="ml-5 pl-5 border border-l-black border-dotted">
+    <div className="md:ml-5 md:pl-5 border border-l-black border-dotted">
       <CommentsList key={index} comments={comment.replies}/>
         
     </div>
@@ -97,9 +97,9 @@ export const CommentsContainer = () => {
   };
 
   return (
-    <div className="ml-4 px-20">
+    <div className=" mx-2 w-screen rounded-lg bg-slate-100 md:ml-4 md:px-20">
       <div className="flex items-center">
-        <h1 className="text-2xl font-bold">Comments</h1>
+        <h1 className="text-sm font-normal px-2 md:text-2xl md:font-bold">Comments</h1>
         <svg
           onClick={handleToggleClick}
           xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +107,7 @@ export const CommentsContainer = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`w-6 h-6 cursor-pointer ${
+          className={`w-3 md:w-6 h-3 md:h-6 cursor-pointer ${
             interactionState ? 'text-blue-500' : 'text-gray-400'
           }`}
         >
@@ -120,7 +120,7 @@ export const CommentsContainer = () => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className={`w-6 h-6 cursor-pointer ${
+          className={`w-3 md:w-6 h-3 md:h-6 cursor-pointer ${
             interactionState ? 'text-gray-400' : 'text-blue-500'
           }`}
         >

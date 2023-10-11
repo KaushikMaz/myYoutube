@@ -31,20 +31,33 @@ useEffect(()=>{
     },[])
   return (
     
-    <div className="flex flex-col">
-      <div className='pl-20 ml-4 mt-[5rem] flex '>
-      <div className="relative">
-        {loading && (
-          <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
-      )}
-            <iframe width="700" height="400"  src={"https://www.youtube.com/embed/" + videoId.get("v")} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-      </div>  
-        <LiveChat />
+    
+    <div className="flex flex-col w-screen ">
+      <div className='md:pl-20 md:ml-4 mt-[3rem] md:mt-[5rem] '>
+          <div className="relative ">
+            {loading && (
+              <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
+          )}
+                <iframe className="w-screen h-[15rem] md:w-[44rem] md:h-[23rem]"  src={"https://www.youtube.com/embed/" + videoId.get("v")} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+          </div>  
+          
       </div>
+       
       <div>
         <VidDetails details={videos} id={videoId}/>
       </div>
-      <CommentsContainer/>  
+      <div className="flex w-screen overflow-x-scroll no-scrollbar  ">
+        <div>
+          <LiveChat />
+        </div>
+        <div>
+          <CommentsContainer/>
+        </div>
+      </div>
+
+        
+      
+              
             
     </div>
     
