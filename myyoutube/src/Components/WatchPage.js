@@ -36,7 +36,7 @@ useEffect(()=>{
       <div className='md:pl-20 md:ml-4 mt-[3rem] md:mt-[5rem] '>
           <div className="relative ">
             {loading && (
-              <div className="absolute inset-0 bg-gray-300 animate-pulse"></div>
+              <div className="absolute bg-gray-300 animate-pulse"></div>
           )}
                 <iframe className="w-screen h-[15rem] md:w-[44rem] md:h-[23rem]"  src={"https://www.youtube.com/embed/" + videoId.get("v")} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
           </div>  

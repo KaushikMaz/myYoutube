@@ -30,12 +30,12 @@ const LiveChat=()=>{
     },[])
 
     return (
-        <div className="flex-1 w-screen md:w-[33rem] md:absolute md:top-[5rem] md:left-[52rem] ">
-            <div className="ml-10 pb-1 mr-20 border  border-black bg-slate-100  rounded-lg ">
-                <button onClick={handleToggleClick} className="p-1  w-full text-center border-black ">{showChat?"Hide Chat":"Show Chat"}</button>
+        <div className="flex-1 w-[23.5rem]  mx-2 md:w-[33rem] md:absolute md:top-[5rem] md:left-[52rem] ">
+            <div className="md:ml-10 md:pb-1 md:mr-20 border  border-black bg-slate-100  rounded-lg ">
+                <button onClick={handleToggleClick} className="px-1 md:p-1 text-sm md:text-base w-full text-center border-black ">{showChat?"Hide Chat":"Show Chat"}</button>
             </div>
             {showChat && 
-            <div className="ml-10 pb-1 mr-20 border border-t-0 border-black bg-slate-100  rounded-lg ">
+            <div className="md:ml-10 md:pb-1 md:mr-20 border border-t-0 border-black bg-slate-100  rounded-lg ">
                     <div className="flex flex-col-reverse h-[380px] pt-7 pl-2 overflow-y-scroll">
                     {liveChatMessages.map((c,index)=><ChatMessage key={index} name={c.name} text={c.text}/>)}
                     </div>

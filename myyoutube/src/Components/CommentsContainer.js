@@ -97,9 +97,9 @@ export const CommentsContainer = () => {
   };
 
   return (
-    <div className=" mx-2 w-screen rounded-lg bg-slate-100 md:ml-4 md:px-20">
+    <div className=" mx-2 w-[23.5rem] md:w-[43rem]  rounded-lg bg-slate-100 md:ml-[6.5rem] md:pl-1">
       <div className="flex items-center">
-        <h1 className="text-sm font-normal px-2 md:text-2xl md:font-bold">Comments</h1>
+        <h1 className="text-sm font-normal px-1 md:text-2xl md:font-bold">Comments</h1>
         <svg
           onClick={handleToggleClick}
           xmlns="http://www.w3.org/2000/svg"

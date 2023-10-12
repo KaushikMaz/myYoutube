@@ -6,7 +6,7 @@ import useContent from './helper/useContent'
 const Music = () => {
   
 
-  const Popular_Music=useContent(Music_API,2,"popularMusic")
+  const Popular_Music=useContent(Music_API,1,"popularMusic")
   const English_Music=useContent(Music_API_US,1,"englishMusic")
   const FR_Music= useContent(Music_API_FR,1,"frenchMusic")
   return(

@@ -16,9 +16,9 @@ const VidDetails = ({details,id}) => {
     // const {description}=details?.[1].snippet?.localized
     // const {likeCount,viewCount}=details?.[1].statistics
   return (
-    <div className='md:ml-[6rem]'>
+    <div className='md:pl-20 md:ml-4'>
         <div className=" font-semibold text-base w-screen md:text-xl  md:w-[44rem] m-1 md:m-2">{title}</div>
-        <div className="flex w-[44rem]">
+        <div className="flex w-screen md:w-[44rem]">
             <div className=" text-sm md:text-sm m-1 md:m-2">{channelTitle}</div>
             <div className=" bg-slate-100 border border-1 hover:bg-slate-300 rounded-l-full pl-2 m-1 mr-0 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -34,7 +34,7 @@ const VidDetails = ({details,id}) => {
             </div>
             
         </div>
-        <div className="w-screen md:w-[43rem] m-2 bg-slate-100 p-2 rounded-lg">
+        <div className="w-[96%] md:w-[43rem] m-2 bg-slate-100 p-1 rounded-lg">
           <div className=" text-gray-700">{(viewCount > 1000000) ? Math.trunc(viewCount / 1000000) + 'M views' : Math.trunc(viewCount / 1000) + 'k views'}</div>
           <div className={`${!isDescriptionOpen && 'line-clamp-2 overflow-hidden'}`}>{description}</div>
           <button className="cursor-pointer font-semibold text-brown" onClick={()=>dispatch(toggleDescription())}>{isDescriptionOpen?"Show Less":"...More"}</button>

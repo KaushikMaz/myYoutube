@@ -77,7 +77,7 @@ const VideoContainer = () => {
       ))}
       {videosVisible < videos.length && (
         <button
-          className={`${isMenuOpen ? "md:w-[86%]" : "md:w-[98%]"}  w-[30%] left-[40%] fixed bottom-3 md:static rounded-l-full rounded-r-full px-1 bg-opacity-70 bg-slate-300  md:px-3 md:py-1 md:ml-2  border  border-gray-300 md:rounded-lg md:hover:bg-gray-500`}
+          className={`${isMenuOpen ? "md:w-[86%]" : "md:w-[98%]"}  w-[25%] left-[38%] fixed bottom-12 md:static rounded-l-full rounded-r-full px-1 bg-opacity-70 bg-slate-300  md:px-3 md:py-1 md:ml-2  border  border-gray-300 md:rounded-lg md:hover:bg-gray-500`}
           onClick={() => setVideosVisible(videos.length)}
         >
          Load More

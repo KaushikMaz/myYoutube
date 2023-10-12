@@ -109,7 +109,7 @@ React.useEffect(()=>{
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </div>
-            <div className=" col-span-11 md:col-span-10 pl-4 md:px-8">
+            <div className=" col-span-11 md:col-span-10 pl-4 md:pl-32">
                 <div className="flex align-center">
                     <input className="w-3/4 border border-gray-300 p-1 pl-3 rounded-l-full" type="text" value={searchQuery}  onChange={handleSearchQuery} placeholder="Search here"/>
                     <button disabled={searchQuery?.length<1} onClick={()=>{setIsSearchClick(true); setShowSuggestion(false); navigateClick()}} className="px-3 border border-gray-300 p-1 rounded-r-full bg-gray-100">
@@ -120,9 +120,9 @@ React.useEffect(()=>{
                     
                 </div>
                 {showSuggestion &&
-                <div className= "fixed z-80 bg-white py-2 px-2 w-[49.5rem] border border-gray-100 shadow-md mt-0 rounded-lg">
+                <div className= "fixed p-1 bg-white md:py-2 md:px-2 w-[16rem] md:w-[47.5rem] border border-gray-100 shadow-md mt-0 rounded-lg">
                     <ul>
-                        {suggestions.map((s, index)=><li onClick={()=>{setSearchQuery(s); setIsSearchClick(true); setShowSuggestion(false); navigateClick()}} className="py-2 px-3 hover:bg-gray-300 rounded-lg cursor-pointer " key={index}>{s}</li>)}
+                        {suggestions.map((s, index)=><li onClick={()=>{setSearchQuery(s); setIsSearchClick(true); setShowSuggestion(false); navigateClick()}} className=" p-1 md:py-2 md:px-3 hover:bg-gray-300 rounded-lg cursor-pointer " key={index}>{s}</li>)}
                         
                     </ul>
                 </div>

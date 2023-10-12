@@ -78,7 +78,7 @@ const useContent = (API,initialRowValue,category) => {
     <>
     {contentVideos.length>0?(
      
-    <div className={`font-bold ${isMenuOpen ? "ml-60" : "ml-6"} mt-[4rem] flex flex-wrap `}>
+    <div className={`font-bold ${isMenuOpen ? "md:ml-60" : "md:ml-6"} mt-[3rem] md:mt-[4rem] flex flex-wrap `}>
      {contentVideos.slice(0,videosVisible).map(video => (
         <Link key={video.id} to={"/watch?v=" + video.id}>
           <VideoCard info={video} />
@@ -87,7 +87,7 @@ const useContent = (API,initialRowValue,category) => {
       {videosVisible < contentVideos.length && (
          <>
          <button
-            className={`${isMenuOpen ? "w-[87%]" : "w-[98%]"} px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
+            className={`${isMenuOpen ? "md:w-[87%]" : "md:w-[98%]"} w-[98%] px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
             onClick={() => setVideosVisible(contentVideos.length)}
         >
           <h1 className='font-light'>Load More</h1>
