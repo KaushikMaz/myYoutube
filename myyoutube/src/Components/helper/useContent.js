@@ -87,12 +87,12 @@ const useContent = (API,initialRowValue,category) => {
       {videosVisible < contentVideos.length && (
          <>
          <button
-            className={`${isMenuOpen ? "md:w-[87%]" : "md:w-[98%]"} w-[98%] px-3 py-1 m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
+            className={`${isMenuOpen ? "md:w-[87%]" : "md:w-[98%]"} w-[25%] left-[38%] fixed bottom-12 md:static rounded-l-full rounded-r-full px-1 bg-opacity-70 bg-slate-300 md:px-3 md:py-1 md:m-1 border border-gray-300 rounded-lg hover:bg-gray-500`}
             onClick={() => setVideosVisible(contentVideos.length)}
         >
-          <h1 className='font-light'>Load More</h1>
+          <h1 className='text-sm md:text-base font-light'>Load More</h1>
         </button>
-        <div className={` ml-1 mt-0 m-1 border  border-b-2 border-gray-300 ${isMenuOpen ? "w-[87%]" : "w-[98%]"}`}></div>
+        <div className={` ml-1 mt-0 m-1 hidden md:block border  border-b-2 border-gray-300 ${isMenuOpen ? "w-[87%]" : "w-[98%]"}` }></div>
         </>
       )}
     </div>
