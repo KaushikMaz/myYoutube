@@ -10,7 +10,8 @@ const VideoDetailsSlice=createSlice({
         popularNews:[],
         englishNews:[],
         sportsVideos:[],
-        gamingVideos:[]
+        gamingVideos:[],
+        searchResultVideos:[]
         
     },
     reducers:{

@@ -4,7 +4,7 @@ import { useSelector,useDispatch } from 'react-redux/'
 import {Link} from "react-router-dom"
 import { ExploreContentShimmer } from './Shimmer'
 import { addVideos} from '../utils/videoDetailsSlice'
-import { mergedObjects } from '../Constants'
+import { mergedObjects,getVideoData } from '../Constants'
 
 const useContent = (API,initialRowValue,category) => {
   const[ contentVideos,setContentVideos]=React.useState([])
@@ -28,14 +28,7 @@ const useContent = (API,initialRowValue,category) => {
     const jsonData= await response.json()
     setContentVideos(jsonData?.items)
 
-    const videoData=jsonData?.items.map((obj)=>{
-      const {id}=obj;
-      const{channelTitle, title}=obj?.snippet;
-      const {description}=obj?.snippet?.localized;
-      const {likeCount,viewCount}=obj?.statistics;
-      return { [id]:{channelTitle,title,description,likeCount,viewCount}}
-
-    })
+    const videoData=getVideoData(jsonData)
     const mergeData=mergedObjects(videoData)
 
     if(category==="popularMusic"){

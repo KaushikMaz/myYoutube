@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "./utils/appSlice";
 import React from "react";
-import { YOUTUBE_SEARCH_API,YOUTUBE_SEARCH_RESULTS} from "./Constants";
+import { YOUTUBE_SEARCH_API,YOUTUBE_SEARCH_RESULTS, getSearchVideoData,mergedObjects} from "./Constants";
 import { searchResult } from "./utils/searchResultSlice";
 import { cacheResult } from "./utils/searchSlice";
+import { addVideos } from "./utils/videoDetailsSlice";
 import { GOOGLE_API_Key } from "../config";
 import {useNavigate} from "react-router-dom"
 
@@ -88,8 +89,11 @@ React.useEffect(()=>{
    const getSearchResults=async()=>{
         const data=await fetch(YOUTUBE_SEARCH_RESULTS+ searchQuery+"&key="+ GOOGLE_API_Key)
         const json= await data.json()
-        // console.log(json.items)
+        console.log(json.items)
         dispatch(searchResult(json.items))
+        const videoData=getSearchVideoData(json)
+        const mergeData=mergedObjects(videoData)
+        dispatch(addVideos({...mergeData,category:"searchResultVideos"}))
         localStorage.setItem("searchResults",JSON.stringify(json.items))
         setSearchQuery("")
         

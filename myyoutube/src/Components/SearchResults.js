@@ -25,7 +25,7 @@ React.useEffect(()=>{
 return(
     <>
     {searchResultVideos.length > 0 && (
-    <div className={`${isMenuOpen ? "md:ml-48" : "md:ml-4"} mt-[3rem] md:mt-[7rem]`}>
+    <div className={`${isMenuOpen ? "md:w-[70rem] md:ml-48" : "md:w-screen "}  mt-[3rem] md:mt-[4rem]`}>
       {searchResultVideos.map(v => (
         <Link key={v.id.videoId} to={"/watch?v=" + v.id.videoId}>
           <SearchResultCard info={v} />

@@ -62,6 +62,34 @@ export const FrontBanner=({name,description, backgroundColor})=>{
  
    return null
   }
+
+  export const getVideoData = (json) => {
+    if (json?.items) {
+      return json.items.map((obj) => {
+        const { id } = obj;
+        const { channelTitle, title } = obj.snippet || {};
+        const { description } = obj.snippet?.localized || {};
+        const { likeCount, viewCount } = obj.statistics || {};
+        return { [id]: { channelTitle, title, description, likeCount, viewCount } };
+      });
+    } else {
+      return [];
+    }
+  };
+
+  export const getSearchVideoData = (json) => {
+    if (json?.items) {
+      return json.items.map((obj) => {
+        const { videoId } = obj?.id
+        const { channelTitle, title,description } = obj.snippet || {};
+        // const { likeCount, viewCount } = obj.statistics || {};
+        return { [videoId]: { channelTitle, title, description} };
+      });
+    } else {
+      return [];
+    }
+  };
+  
 const nameList = [
     'Time', 'Past', 'Future', 'Dev',
     'Fly', 'Flying', 'Soar', 'Soaring', 'Power', 'Falling',

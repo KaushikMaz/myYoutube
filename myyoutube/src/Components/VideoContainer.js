@@ -8,6 +8,7 @@ import { VideoShimmer } from './helper/Shimmer'
 import { useDispatch } from "react-redux"
 import { addVideos } from "./utils/videoDetailsSlice"
 import { mergedObjects } from "./Constants"
+import { getVideoData } from "./Constants"
 
 
 
@@ -36,15 +37,7 @@ const VideoContainer = () => {
         // console.log(json.items)
         setVideos(json.items)
 
-        const videoData=json?.items.map((obj)=>{
-          const {id}=obj;
-          const{channelTitle, title}=obj?.snippet;
-          const {description}=obj?.snippet?.localized;
-          const {likeCount,viewCount}=obj?.statistics;
-          return {[id]:{channelTitle,title,description,likeCount,viewCount}}
-              
-        })
-                
+        const videoData=getVideoData(json)
         const mergeData=mergedObjects(videoData)
         dispatch(addVideos({...mergeData,category:"homeVideos"}))
 
