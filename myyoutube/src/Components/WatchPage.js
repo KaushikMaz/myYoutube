@@ -45,19 +45,21 @@ useEffect(()=>{
    })
         
    useEffect(()=>{
-    if(chatSection.current){
-      observer.observe(chatSection.current)
+    const chatSectionValue=chatSection.current
+    const commentsSectionValue=commentsSection.current
+    if(chatSectionValue){
+      observer.observe(chatSectionValue)
     }
-    if(commentsSection.current){
-      observer.observe(commentsSection.current)
+    if(commentsSectionValue){
+      observer.observe(commentsSectionValue)
     }
 
     return()=>{
-      if(chatSection.current){
-        observer.unobserve(chatSection.current)
+      if(chatSectionValue){
+        observer.unobserve(chatSectionValue)
       }
-      if(commentsSection.current){
-        observer.unobserve(commentsSection.current)
+      if(commentsSectionValue){
+        observer.unobserve(commentsSectionValue)
       }
     }
    },[])
