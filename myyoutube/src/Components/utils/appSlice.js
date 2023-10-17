@@ -6,6 +6,7 @@ const appSlice=createSlice({
         isMenuOpen:true,
         isInteractionOpen:false,
         isDescriptionOpen:false,
+        isChatVisible:true
     },
     reducers:{
         toggleMenu:(state)=>{
@@ -20,10 +21,13 @@ const appSlice=createSlice({
         },
         toggleDescription:(state)=>{
             state.isDescriptionOpen=!state.isDescriptionOpen;
+        },
+        toggleChatVisibility:(state)=>{
+            state.isChatVisible=!state.isChatVisible
         }
     },
 });
 
 
-export const {toggleMenu, toggleMenuOff, toggleInteraction,toggleDescription}= appSlice.actions
+export const {toggleMenu, toggleMenuOff, toggleInteraction,toggleDescription,toggleChatVisibility}= appSlice.actions
 export default appSlice.reducer;

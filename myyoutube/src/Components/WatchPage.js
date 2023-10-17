@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect, useRef } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
-import { toggleMenuOff } from './utils/appSlice'
+import { toggleMenuOff,toggleChatVisibility } from './utils/appSlice'
 import { useSearchParams } from 'react-router-dom'
 import {CommentsContainer} from './CommentsContainer'
 import LiveChat from './LiveChat'
@@ -8,6 +8,7 @@ import VidDetails from './VidDetails'
 
 const WatchPage = () => {
     const videos=useSelector(store=>store.videoDetails)
+    const chatVisible=useSelector(store=>store.app.isChatVisible)
     const [videoId]=useSearchParams();
     const [loading,setLoading]=useState(true)
 useEffect(()=>{
@@ -29,6 +30,40 @@ useEffect(()=>{
     React.useEffect(()=>{
         dispatch(toggleMenuOff())
     },[])
+
+    const chatSection=useRef(null)
+    const commentsSection=useRef(null)
+
+    
+
+   const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if (entry.isIntersecting){
+            dispatch(toggleChatVisibility()) }
+          }
+        )
+   })
+        
+   useEffect(()=>{
+    if(chatSection.current){
+      observer.observe(chatSection.current)
+    }
+    if(commentsSection.current){
+      observer.observe(commentsSection.current)
+    }
+
+    return()=>{
+      if(chatSection.current){
+        observer.unobserve(chatSection.current)
+      }
+      if(commentsSection.current){
+        observer.unobserve(commentsSection.current)
+      }
+    }
+   },[])
+        
+
+
   return (
     
     
@@ -46,11 +81,28 @@ useEffect(()=>{
       <div>
         <VidDetails details={videos} id={videoId}/>
       </div>
+      <div className='flex md:hidden pr-2 justify-end'>
+        <div className={`${!chatVisible && 'hidden'}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className=" w-3 h-3">
+        <g clip-path="url(#clip0_9_2121)">
+        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.25-7.25a.75.75 0 000-1.5H8.66l2.1-1.95a.75.75 0 10-1.02-1.1l-3.5 3.25a.75.75 0 000 1.1l3.5 3.25a.75.75 0 001.02-1.1l-2.1-1.95h4.59z" clipRule="evenodd" />
+        </g> <defs> <clipPath id="clip0_9_2121">
+        <path d="M0 0h20v20H0z" />
+        </clipPath>
+        </defs>
+        </svg>
+        </div>
+        <div className={`${chatVisible && "hidden"}`}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3 h-3">
+        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM6.75 9.25a.75.75 0 000 1.5h4.59l-2.1 1.95a.75.75 0 001.02 1.1l3.5-3.25a.75.75 0 000-1.1l-3.5-3.25a.75.75 0 10-1.02 1.1l2.1 1.95H6.75z" clipRule="evenodd" />
+        </svg>
+        </div>
+      </div>
       <div className="flex w-screen overflow-x-scroll no-scrollbar  ">
-        <div>
+        <div ref={chatSection}>
           <LiveChat />
         </div>
-        <div>
+        <div ref={commentsSection}>
           <CommentsContainer/>
         </div>
       </div>

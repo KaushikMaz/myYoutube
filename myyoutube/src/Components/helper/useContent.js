@@ -2,7 +2,7 @@ import React from 'react'
 import VideoCard from '../VideoCard'
 import { useSelector,useDispatch } from 'react-redux/'
 import {Link} from "react-router-dom"
-import { ExploreContentShimmer } from './Shimmer'
+import { ExploreContentShimmer,VideoShimmer } from './Shimmer'
 import { addVideos} from '../utils/videoDetailsSlice'
 import { mergedObjects,getVideoData } from '../Constants'
 
@@ -90,7 +90,7 @@ const useContent = (API,initialRowValue,category) => {
       )}
     </div>
     
-    ):(<ExploreContentShimmer/>)}
+    ):((window.innerWidth<768)?<VideoShimmer/>:<ExploreContentShimmer/>)}
     </>
   )
   

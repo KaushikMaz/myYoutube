@@ -82,8 +82,8 @@ export const FrontBanner=({name,description, backgroundColor})=>{
       return json.items.map((obj) => {
         const { videoId } = obj?.id
         const { channelTitle, title,description } = obj.snippet || {};
-        // const { likeCount, viewCount } = obj.statistics || {};
-        return { [videoId]: { channelTitle, title, description} };
+        const { likeCount, viewCount } = obj.statistics || {};
+        return { [videoId]: { channelTitle, title, description,likeCount,viewCount} };
       });
     } else {
       return [];
