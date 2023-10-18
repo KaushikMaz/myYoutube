@@ -1,9 +1,9 @@
 import {useSelector} from "react-redux"
-const config = require('../config.js');
 
-export const GOOGLE_API_Key = config.GOOGLE_API_Key;
 
-export const YOUTUBE_API_KEY="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" + GOOGLE_API_Key;
+export const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+
+export const YOUTUBE_API_KEY="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" + GOOGLE_API_KEY ;
 
 export const YOUTUBE_SEARCH_API="https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
 
@@ -11,18 +11,18 @@ export const YOUTUBE_SEARCH_RESULTS="https://youtube.googleapis.com/youtube/v3/s
 
 // https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=[YOUR_API_KEY]
 
-export const Video_CategoriesAPI="https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&hl=en&regionCode=IN&key=" + GOOGLE_API_Key;
+export const Video_CategoriesAPI="https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&hl=en&regionCode=IN&key=" + GOOGLE_API_KEY;
 
 // export const Music_Videos_API= "https://youtube.googleapis.com/youtube/v3/videoCategories?part=snippet&hl=en&id=10&regionCode=IN&key=" + GOOGLE_API_Key; 
-export const Music_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=IN&videoCategoryId=10&key="+ GOOGLE_API_Key
-export const Music_API_US="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=US&videoCategoryId=10&key="+ GOOGLE_API_Key
-export const Music_API_FR="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=fr&regionCode=FR&videoCategoryId=10&key="+ GOOGLE_API_Key
-export const News_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=IN&videoCategoryId=25&key="+ GOOGLE_API_Key
-export const News_API_US="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=US&videoCategoryId=25&key="+ GOOGLE_API_Key
+export const Music_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=IN&videoCategoryId=10&key=" + GOOGLE_API_KEY
+export const Music_API_US="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=US&videoCategoryId=10&key=" + GOOGLE_API_KEY
+export const Music_API_FR="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=fr&regionCode=FR&videoCategoryId=10&key=" + GOOGLE_API_KEY
+export const News_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=IN&videoCategoryId=25&key=" + GOOGLE_API_KEY
+export const News_API_US="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=20&hl=en&regionCode=US&videoCategoryId=25&key=" + GOOGLE_API_KEY
 
-export const Sports_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&hl=en&regionCode=IN&videoCategoryId=17&key="+ GOOGLE_API_Key
-export const Gaming_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&hl=en&regionCode=IN&videoCategoryId=20&key="+ GOOGLE_API_Key
-export const Live_API= "https://youtube.googleapis.com/youtube/v3/liveBroadcasts?broadcastStatus=active&key="+ GOOGLE_API_Key
+export const Sports_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&hl=en&regionCode=IN&videoCategoryId=17&key=" + GOOGLE_API_KEY
+export const Gaming_API= "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=100&hl=en&regionCode=IN&videoCategoryId=20&key=" + GOOGLE_API_KEY
+export const Live_API= "https://youtube.googleapis.com/youtube/v3/liveBroadcasts?broadcastStatus=active&key=" + GOOGLE_API_KEY
 
 export const FrontBanner=({name,description, backgroundColor})=>{
     const isMenuOpen=useSelector(store=>store.app.isMenuOpen)
