@@ -108,14 +108,14 @@ React.useEffect(()=>{
         
         <div className="grid grid-flow-col px-0 p-1 md:p-3 shadow-lg items-center fixed top-0 w-screen md:w-full bg-white z-10">
             <div className="md:col-span-1 hidden md:block" >
-                <svg onClick={()=>handleToggleMenu()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className=" cursor-pointer w-6 h-6">
+                <svg onClick={()=>handleToggleMenu()} data-testid="toggleSideButton" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className=" cursor-pointer w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </div>
             <div className=" col-span-11 md:col-span-10 pl-4 md:pl-32">
                 <div className="flex align-center">
                     <input className="w-3/4 border border-gray-300 p-1 pl-3 rounded-l-full" type="text" value={searchQuery}  onChange={handleSearchQuery} placeholder="Search here"/>
-                    <button disabled={searchQuery?.length<1} onClick={()=>{setIsSearchClick(true); setShowSuggestion(false); navigateClick()}} className="px-3 border border-gray-300 p-1 rounded-r-full bg-gray-100">
+                    <button data-testid="searchButton" disabled={searchQuery?.length<1} onClick={()=>{setIsSearchClick(true); setShowSuggestion(false); navigateClick()}} className="px-3 border border-gray-300 p-1 rounded-r-full bg-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className=" cursor-pointer w-6 h-6">
     <path fillRule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clipRule="evenodd" />
     </svg>
